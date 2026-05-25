@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Academic portfolio and CV homepage for JiWoong Yang, focused on medical AI and multi-view deep learning." />
+  <title>JiWoong Yang | Medical AI Researcher</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: rgba(15, 23, 42, 0.10);
+      --card: rgba(255, 255, 255, 0.76);
+      --card-strong: #ffffff;
+      --accent: #111827;
+      --accent-text: #ffffff;
+      --soft-shadow: 0 24px 80px rgba(15, 23, 42, 0.10);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    body.dark {
+      --bg: #070a12;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --line: rgba(255, 255, 255, 0.12);
+      --card: rgba(255, 255, 255, 0.055);
+      --card-strong: rgba(255, 255, 255, 0.08);
+      --accent: #ffffff;
+      --accent-text: #0f172a;
+      --soft-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .page { position: relative; min-height: 100vh; overflow: hidden; }
+    .bg-blur { position: fixed; inset: 0; pointer-events: none; opacity: 0.82; z-index: 0; }
+    .blob { position: absolute; border-radius: 999px; filter: blur(72px); }
+    .blob.one { width: 420px; height: 420px; left: -160px; top: -80px; background: rgba(147, 197, 253, 0.62); }
+    .blob.two { width: 520px; height: 520px; right: -220px; top: 120px; background: rgba(196, 181, 253, 0.58); }
+    .blob.three { width: 440px; height: 440px; left: 48%; bottom: -220px; background: rgba(252, 211, 77, 0.45); }
+    body.dark .blob.one { background: rgba(59, 130, 246, 0.22); }
+    body.dark .blob.two { background: rgba(124, 58, 237, 0.20); }
+    body.dark .blob.three { background: rgba(245, 158, 11, 0.12); }
+
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--line); backdrop-filter: blur(22px); background: color-mix(in srgb, var(--bg) 76%, transparent); }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 42px; height: 42px; border-radius: 16px; display: grid; place-items: center; background: var(--accent); color: var(--accent-text); font-weight: 900; box-shadow: var(--soft-shadow); }
+    .brand-title { font-weight: 850; letter-spacing: -0.03em; }
+    .brand-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .navlinks { display: flex; gap: 4px; border: 1px solid var(--line); background: var(--card); padding: 5px; border-radius: 999px; }
+    .navlinks a { font-size: 14px; color: var(--muted); font-weight: 700; padding: 10px 14px; border-radius: 999px; transition: 0.2s ease; }
+    .navlinks a:hover { background: var(--accent); color: var(--accent-text); }
+    .theme-toggle { border: 1px solid var(--line); background: var(--card); color: var(--text); width: 44px; height: 44px; border-radius: 999px; cursor: pointer; font-size: 18px; }
+
+    section { padding: 78px 0; }
+    .hero { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 56px; align-items: center; padding-top: 86px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--card); color: var(--muted); border-radius: 999px; padding: 9px 14px; font-size: 14px; font-weight: 700; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); }
+    .dot { width: 9px; height: 9px; border-radius: 999px; background: #10b981; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.12); }
+    h1 { margin: 22px 0 0; font-size: clamp(52px, 8vw, 88px); line-height: 0.91; letter-spacing: -0.075em; }
+    .lead { margin-top: 28px; max-width: 680px; color: var(--muted); font-size: 18px; line-height: 1.85; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .tag { border: 1px solid var(--line); background: var(--card); border-radius: 999px; color: var(--muted); padding: 9px 13px; font-size: 13px; font-weight: 800; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+    .button { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 14px 18px; font-weight: 850; font-size: 14px; transition: transform 0.2s ease, background 0.2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--accent); color: var(--accent-text); box-shadow: var(--soft-shadow); }
+    .button.secondary { border: 1px solid var(--line); background: var(--card); color: var(--text); }
+
+    .card { border: 1px solid var(--line); background: var(--card); border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--soft-shadow); backdrop-filter: blur(22px); }
+    .profile-card { overflow: hidden; padding: 0; }
+    .profile-banner { height: 120px; background: linear-gradient(135deg, #3b82f6, #8b5cf6 45%, #f59e0b); }
+    .profile-body { padding: 28px; padding-top: 0; }
+    .avatar { width: 100px; height: 100px; border-radius: 30px; display: grid; place-items: center; margin-top: -50px; border: 5px solid var(--bg); background: var(--accent); color: var(--accent-text); font-size: 32px; font-weight: 950; box-shadow: var(--soft-shadow); }
+    .profile-body h2 { margin: 18px 0 4px; font-size: 28px; letter-spacing: -0.04em; }
+    .role { color: var(--muted); font-weight: 750; }
+    .info-list { display: grid; gap: 12px; margin-top: 26px; }
+    .info-item { display: flex; gap: 14px; align-items: center; border: 1px solid var(--line); background: color-mix(in srgb, var(--card-strong) 65%, transparent); border-radius: 24px; padding: 14px; }
+    .info-icon { width: 42px; height: 42px; border-radius: 16px; display: grid; place-items: center; background: var(--accent); color: var(--accent-text); font-size: 18px; }
+    .info-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.13em; font-weight: 900; }
+    .info-value { margin-top: 3px; font-size: 14px; font-weight: 800; }
+
+    .section-label { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--card); color: var(--muted); border-radius: 999px; padding: 7px 12px; font-size: 11px; font-weight: 950; text-transform: uppercase; letter-spacing: 0.22em; }
+    .section-label::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--accent); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin: 18px 0 34px; }
+    .section-head h2, .split h2 { margin: 0; font-size: clamp(34px, 5vw, 56px); line-height: 1; letter-spacing: -0.055em; }
+    .section-head p { margin: 0; max-width: 480px; line-height: 1.8; color: var(--muted); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 32px; align-items: start; }
+    .card h3 { margin: 0; font-size: 21px; letter-spacing: -0.035em; }
+    .card p { color: var(--muted); line-height: 1.8; margin: 12px 0 0; }
+    .icon-bubble { width: 50px; height: 50px; border-radius: 18px; display: grid; place-items: center; margin-bottom: 18px; background: var(--accent); color: var(--accent-text); font-size: 22px; }
+    .filter-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter { border: 1px solid var(--line); background: var(--card); color: var(--muted); border-radius: 999px; padding: 10px 14px; cursor: pointer; font-weight: 850; }
+    .filter.active { background: var(--accent); color: var(--accent-text); }
+    .project-card { transition: 0.22s ease; }
+    .project-card:hover { transform: translateY(-4px); }
+    .project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+    .status { background: var(--accent); color: var(--accent-text); border-radius: 999px; padding: 7px 11px; font-size: 11px; font-weight: 950; }
+    .category { color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; font-size: 12px; font-weight: 950; }
+    .paper { display: flex; gap: 18px; }
+    .year { flex: 0 0 62px; width: 62px; height: 62px; border-radius: 20px; display: grid; place-items: center; background: var(--accent); color: var(--accent-text); font-weight: 950; }
+    .skill-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-card { background: var(--accent); color: var(--accent-text); }
+    .contact-card .section-label { background: rgba(255,255,255,0.12); color: currentColor; border-color: rgba(255,255,255,0.18); }
+    .contact-card .section-label::before { background: currentColor; }
+    .contact-card p { color: color-mix(in srgb, currentColor 72%, transparent); }
+    .contact-links { display: grid; gap: 12px; }
+    .contact-link { display: flex; justify-content: space-between; align-items: center; border-radius: 24px; padding: 16px; background: rgba(255,255,255,0.12); font-weight: 900; }
+    footer { color: var(--muted); font-size: 14px; padding: 36px 0 48px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; border-top: 1px solid var(--line); padding-top: 26px; }
+
+    @media (max-width: 920px) {
+      .navlinks { display: none; }
+      .hero, .split, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 16px; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (max-width: 520px) {
+      .container { width: min(100% - 28px, 1120px); }
+      h1 { font-size: 50px; }
+      .card { padding: 22px; }
+      .profile-body { padding: 22px; padding-top: 0; }
+      .actions .button { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="bg-blur" aria-hidden="true">
+      <div class="blob one"></div>
+      <div class="blob two"></div>
+      <div class="blob three"></div>
+    </div>
+
+    <header>
+      <nav class="container">
+        <a class="brand" href="#home" aria-label="Go to homepage">
+          <div class="logo">JY</div>
+          <div>
+            <div class="brand-title">JiWoong Yang</div>
+            <div class="brand-subtitle">Academic Portfolio</div>
+          </div>
+        </a>
+        <div class="navlinks" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#cv">CV</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="container hero" id="home">
+        <div>
+          <div class="pill"><span class="dot"></span> Open to research collaboration</div>
+          <h1>Designing reliable AI for clinical images.</h1>
+          <p class="lead">
+            I build clinically meaningful AI systems for medical image analysis, with a focus on multi-view deep learning, radiography-based diagnosis, robust feature fusion, and interpretable decision support.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Medical AI</span>
+            <span class="tag">Multi-view Learning</span>
+            <span class="tag">Radiography</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Clinical Decision Support</span>
+          </div>
+          <div class="actions">
+            <a class="button primary" href="#cv">View CV Highlights →</a>
+            <a class="button secondary" href="#projects">Explore Projects →</a>
+          </div>
+        </div>
+
+        <aside class="card profile-card">
+          <div class="profile-banner"></div>
+          <div class="profile-body">
+            <div class="avatar">JY</div>
+            <h2>JiWoong Yang</h2>
+            <div class="role">Medical AI Researcher · Deep Learning Engineer</div>
+            <div class="info-list">
+              <div class="info-item"><div class="info-icon">▣</div><div><div class="info-label">Research</div><div class="info-value">Medical AI · Multi-view Learning</div></div></div>
+              <div class="info-item"><div class="info-icon">◎</div><div><div class="info-label">Focus</div><div class="info-value">Radiography · MRI · Explainability</div></div></div>
+              <div class="info-item"><div class="info-icon">⌂</div><div><div class="info-label">Location</div><div class="info-value">Seoul, South Korea</div></div></div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="container" id="about">
+        <div class="section-label">About</div>
+        <div class="split" style="margin-top: 18px;">
+          <h2>Research-driven, clinically grounded, and implementation-focused.</h2>
+          <div class="card">
+            <p>
+              My work focuses on bridging deep learning research and practical clinical AI. I am especially interested in how multiple images from the same patient or object can be fused into a more reliable prediction than a single image alone.
+            </p>
+            <p>
+              This homepage is designed to present research interests, selected projects, publications, technical skills, and CV information in a clean academic style.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container" id="research">
+        <div class="section-label">Research</div>
+        <div class="section-head">
+          <h2>Core research interests</h2>
+          <p>A compact overview of the themes that connect my medical AI and multi-view learning projects.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="icon-bubble">🧠</div><h3>Multi-view Deep Learning</h3><p>Learning complementary representations from fixed clinical views such as AP, Axial, Glenoid, Outlet, frontal/lateral, and facial poses.</p></div>
+          <div class="card"><div class="icon-bubble">🔬</div><h3>Medical Image Analysis</h3><p>Designing deep learning pipelines for radiography, MRI segmentation, explainability, and clinically meaningful screening support.</p></div>
+          <div class="card"><div class="icon-bubble">✨</div><h3>Evidence & Feature Fusion</h3><p>Exploring attention, score fusion, contrastive learning, and Dempster–Shafer evidence aggregation for reliable predictions.</p></div>
+        </div>
+      </section>
+
+      <section class="container" id="projects">
+        <div class="section-label">Projects</div>
+        <div class="section-head">
+          <div>
+            <h2>Selected projects</h2>
+            <p style="margin-top: 16px;">Filter by theme to quickly explore the main research directions.</p>
+          </div>
+          <div class="filter-row">
+            <button class="filter active" data-filter="All">All</button>
+            <button class="filter" data-filter="Medical AI">Medical AI</button>
+            <button class="filter" data-filter="Segmentation">Segmentation</button>
+            <button class="filter" data-filter="Dataset">Dataset</button>
+          </div>
+        </div>
+        <div class="grid-2" id="projectGrid">
+          <article class="card project-card" data-category="Medical AI"><div class="project-top"><span class="status">Research Project</span><span>↗</span></div><div class="category">Medical AI</div><h3>Rotator Cuff Tear Diagnosis from Multi-view Shoulder Radiographs</h3><p>A multi-view diagnostic framework using shoulder radiographs to support screening for rotator cuff tears.</p><div class="tag-row"><span class="tag">Multi-view</span><span class="tag">Radiography</span><span class="tag">Grad-CAM</span><span class="tag">Evidence Fusion</span></div></article>
+          <article class="card project-card" data-category="Medical AI"><div class="project-top"><span class="status">Research Project</span><span>↗</span></div><div class="category">Medical AI</div><h3>Facial Paralysis Severity Classification from Multi-pose Facial Images</h3><p>A multi-image learning approach for classifying facial paralysis severity from normal, E-pronunciation, and U-pronunciation facial poses.</p><div class="tag-row"><span class="tag">Multi-pose</span><span class="tag">Classification</span><span class="tag">Class Imbalance</span></div></article>
+          <article class="card project-card" data-category="Segmentation"><div class="project-top"><span class="status">Proposal / Ongoing</span><span>↗</span></div><div class="category">Segmentation</div><h3>Choroid Plexus Volume Segmentation with Multimodal MRI</h3><p>A segmentation-focused study using T1, contrast-enhanced T1, and FLAIR MRI to analyze CPV-related neurodegenerative markers.</p><div class="tag-row"><span class="tag">MRI</span><span class="tag">nnUNet</span><span class="tag">SwinUNETR</span></div></article>
+          <article class="card project-card" data-category="Dataset"><div class="project-top"><span class="status">Manuscript Project</span><span>↗</span></div><div class="category">Dataset</div><h3>Traffic Accident Risk Prediction Dataset Construction in Seoul</h3><p>A data-centric study integrating accident records, weather, road networks, speed, POI, solar geometry, and surveillance data.</p><div class="tag-row"><span class="tag">Dataset</span><span class="tag">Seoul</span><span class="tag">Risk Prediction</span></div></article>
+        </div>
+      </section>
+
+      <section class="container" id="publications">
+        <div class="section-label">Publications</div>
+        <div class="split" style="margin-top: 18px;">
+          <div><h2>Publications & manuscripts</h2><p class="lead" style="font-size: 16px; margin-top: 18px;">Replace these placeholders with exact paper titles, author order, venues, DOI, and links.</p></div>
+          <div style="display: grid; gap: 16px;">
+            <div class="card paper"><div class="year">2026</div><div><h3>View Evidence Fusion via Dempster’s Rule for Multi-view Medical Image Classification</h3><p>Manuscript in preparation</p></div></div>
+            <div class="card paper"><div class="year">2026</div><div><h3>Radiography-based Deep Learning for Rotator Cuff Tear Screening</h3><p>Manuscript in preparation</p></div></div>
+            <div class="card paper"><div class="year">2025</div><div><h3>Dataset Construction for Traffic Accident Risk Prediction in Seoul</h3><p>Manuscript draft</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container" id="cv">
+        <div class="section-label">CV</div>
+        <div class="grid-2" style="margin-top: 18px;">
+          <div class="card" style="background: var(--accent); color: var(--accent-text);">
+            <h2 style="margin:0; font-size: clamp(34px, 5vw, 54px); letter-spacing: -0.055em; line-height:1;">Curriculum Vitae</h2>
+            <p style="color: color-mix(in srgb, currentColor 72%, transparent);">Keep your PDF CV updated and link it here. The website should show highlights, while the PDF contains the complete academic record.</p>
+            <div class="actions"><a class="button secondary" href="#contact">Contact for CV →</a></div>
+          </div>
+          <div style="display:grid; gap: 14px;">
+            <div class="card"><div class="category">Education</div><p>Add your university, degree, department, and expected graduation date.</p></div>
+            <div class="card"><div class="category">Research Experience</div><p>Medical image analysis, multi-view learning, segmentation, and dataset construction.</p></div>
+            <div class="card"><div class="category">Technical Stack</div><p>Python, PyTorch, MONAI, OpenCV, scikit-learn, Linux, Git, WandB.</p></div>
+            <div class="card"><div class="category">Current Focus</div><p>Clinically interpretable multi-view AI models for radiography and MRI.</p></div>
+          </div>
+        </div>
+        <h3 style="margin: 36px 0 14px;">Technical skills</h3>
+        <div class="skill-cloud">
+          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">MONAI</span><span class="tag">OpenCV</span><span class="tag">scikit-learn</span><span class="tag">Weights & Biases</span><span class="tag">ResNet</span><span class="tag">ConvNeXt</span><span class="tag">nnUNet</span><span class="tag">SwinUNETR</span><span class="tag">Grad-CAM</span><span class="tag">Cross-validation</span>
+        </div>
+      </section>
+
+      <section class="container" id="contact">
+        <div class="card contact-card">
+          <div class="grid-2" style="align-items:center;">
+            <div>
+              <div class="section-label">Contact</div>
+              <h2 style="margin:18px 0 0; font-size: clamp(34px, 5vw, 56px); line-height:1; letter-spacing:-0.055em;">Let’s build clinically useful AI.</h2>
+              <p>Update these links with your real email, GitHub, Google Scholar, ORCID, or LinkedIn before publishing.</p>
+            </div>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:your.email@example.com"><span>Email</span><span>↗</span></a>
+              <a class="contact-link" href="https://github.com/your-github-id"><span>GitHub</span><span>↗</span></a>
+              <a class="contact-link" href="https://scholar.google.com/"><span>Google Scholar</span><span>↗</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> JiWoong Yang. All rights reserved.</div>
+        <div>Built as a static portfolio for free public hosting.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark');
+      toggle.textContent = '☀';
+    }
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      toggle.textContent = isDark ? '☀' : '☾';
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const filters = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.project-card');
+    filters.forEach(button => {
+      button.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        const target = button.dataset.filter;
+        cards.forEach(card => {
+          card.style.display = target === 'All' || card.dataset.category === target ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

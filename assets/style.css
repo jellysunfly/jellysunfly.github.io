@@ -158,35 +158,47 @@ footer { color: var(--muted); font-size: 14px; padding: 36px 0 48px; }
   .year, .timeline-date { margin-bottom: 14px; width: fit-content; }
 }
 
-.hero-grid-home { grid-template-columns: 0.92fr 1.08fr; align-items: start; }
-.profile-card-home { max-width: 470px; }
-.profile-card-home .profile-banner { height: 104px; }
+.hero-grid-home { grid-template-columns: 0.78fr 1.22fr; align-items: center; gap: 52px; }
+.profile-card-home { max-width: 410px; }
+.profile-card-home .profile-banner { height: 96px; }
+.profile-card-home .profile-body { padding: 24px 28px 28px; }
 .profile-photo {
-  width: min(100%, 320px);
-  aspect-ratio: 4 / 5;
+  width: 156px;
+  height: 156px;
   object-fit: cover;
   object-position: center top;
   display: block;
-  margin-top: -46px;
-  border-radius: 30px;
+  margin-top: -48px;
+  border-radius: 28px;
   border: 5px solid var(--bg);
-  box-shadow: var(--soft-shadow);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.16);
   background: #dbe4ef;
 }
-.profile-card-home .profile-body h2 { margin: 20px 0 4px; }
-.hero-copy { padding-top: 8px; }
-.home-name {
+.profile-card-home .profile-body h2 { margin: 18px 0 4px; }
+.hero-copy { padding-top: 4px; }
+.home-title {
   margin: 18px 0 0;
-  font-size: clamp(38px, 5.4vw, 68px);
+  max-width: 760px;
+  font-size: clamp(40px, 5.9vw, 70px);
   line-height: 0.98;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.065em;
 }
-.inline-home-label { margin-top: 26px; }
-.home-highlights { margin-top: 18px; }
-.home-highlights .stat { background: color-mix(in srgb, var(--card-strong) 72%, transparent); }
+.inline-home-label { margin-top: 28px; }
+.home-highlights { margin-top: 16px; gap: 12px; }
+.home-highlights .stat {
+  background: color-mix(in srgb, var(--card-strong) 72%, transparent);
+  border-radius: 20px;
+  padding: 16px;
+}
+.home-highlights .stat strong { font-size: 24px; }
+.home-highlights .stat span { font-size: 12px; line-height: 1.45; }
 @media (max-width: 920px) {
-  .hero-grid-home { grid-template-columns: 1fr; }
+  .hero-grid-home { grid-template-columns: 1fr; gap: 32px; }
   .profile-card-home { max-width: none; order: 1; }
   .hero-copy { order: 2; }
-  .profile-photo { width: min(100%, 280px); }
+  .profile-photo { width: 140px; height: 140px; }
+}
+@media (max-width: 560px) {
+  .home-title { font-size: 40px; }
+  .profile-photo { width: 128px; height: 128px; border-radius: 26px; }
 }

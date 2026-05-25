@@ -157,3 +157,36 @@ footer { color: var(--muted); font-size: 14px; padding: 36px 0 48px; }
   .paper, .timeline-item { display: block; }
   .year, .timeline-date { margin-bottom: 14px; width: fit-content; }
 }
+
+.hero-grid-home { grid-template-columns: 0.92fr 1.08fr; align-items: start; }
+.profile-card-home { max-width: 470px; }
+.profile-card-home .profile-banner { height: 104px; }
+.profile-photo {
+  width: min(100%, 320px);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin-top: -46px;
+  border-radius: 30px;
+  border: 5px solid var(--bg);
+  box-shadow: var(--soft-shadow);
+  background: #dbe4ef;
+}
+.profile-card-home .profile-body h2 { margin: 20px 0 4px; }
+.hero-copy { padding-top: 8px; }
+.home-name {
+  margin: 18px 0 0;
+  font-size: clamp(38px, 5.4vw, 68px);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+.inline-home-label { margin-top: 26px; }
+.home-highlights { margin-top: 18px; }
+.home-highlights .stat { background: color-mix(in srgb, var(--card-strong) 72%, transparent); }
+@media (max-width: 920px) {
+  .hero-grid-home { grid-template-columns: 1fr; }
+  .profile-card-home { max-width: none; order: 1; }
+  .hero-copy { order: 2; }
+  .profile-photo { width: min(100%, 280px); }
+}

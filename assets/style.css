@@ -158,24 +158,28 @@ footer { color: var(--muted); font-size: 14px; padding: 36px 0 48px; }
   .year, .timeline-date { margin-bottom: 14px; width: fit-content; }
 }
 
-.hero-grid-home { grid-template-columns: 0.78fr 1.22fr; align-items: center; gap: 52px; }
-.profile-card-home { max-width: 410px; }
-.profile-card-home .profile-banner { height: 96px; }
-.profile-card-home .profile-body { padding: 24px 28px 28px; }
+.hero-grid-home { grid-template-columns: 0.74fr 1.26fr; align-items: stretch; gap: 56px; }
+.profile-card-home { max-width: 390px; height: 100%; }
+.profile-card-home .profile-banner { height: 84px; }
+.profile-card-home .profile-body { padding: 20px 26px 24px; }
 .profile-photo {
-  width: 156px;
-  height: 156px;
+  width: 128px;
+  height: 128px;
   object-fit: cover;
   object-position: center top;
   display: block;
-  margin-top: -48px;
-  border-radius: 28px;
-  border: 5px solid var(--bg);
+  margin-top: -36px;
+  border-radius: 24px;
+  border: 4px solid var(--bg);
   box-shadow: 0 18px 50px rgba(15, 23, 42, 0.16);
   background: #dbe4ef;
 }
-.profile-card-home .profile-body h2 { margin: 18px 0 4px; }
-.hero-copy { padding-top: 4px; }
+.profile-card-home .profile-body h2 { margin: 14px 0 4px; }
+
+.profile-card-home .info-list { margin-top: 20px; gap: 10px; }
+.profile-card-home .info-item { padding: 12px; border-radius: 22px; }
+.profile-card-home .info-icon { width: 38px; height: 38px; border-radius: 14px; font-size: 16px; }
+.hero-copy { padding-top: 0; display: flex; flex-direction: column; justify-content: center; }
 .home-title {
   margin: 18px 0 0;
   max-width: 760px;
@@ -196,9 +200,31 @@ footer { color: var(--muted); font-size: 14px; padding: 36px 0 48px; }
   .hero-grid-home { grid-template-columns: 1fr; gap: 32px; }
   .profile-card-home { max-width: none; order: 1; }
   .hero-copy { order: 2; }
-  .profile-photo { width: 140px; height: 140px; }
+  .profile-photo { width: 120px; height: 120px; }
 }
 @media (max-width: 560px) {
   .home-title { font-size: 40px; }
-  .profile-photo { width: 128px; height: 128px; border-radius: 26px; }
+  .profile-photo { width: 112px; height: 112px; border-radius: 22px; }
+}
+
+.intro-lead {
+  margin-top: 26px;
+  max-width: 760px;
+  font-size: clamp(20px, 2.3vw, 28px);
+  line-height: 1.72;
+  letter-spacing: -0.02em;
+  color: var(--muted);
+}
+.intro-lead strong {
+  color: var(--text);
+  font-weight: 950;
+}
+.home-caption {
+  margin-top: 26px;
+}
+.hero-copy .actions {
+  margin-top: 32px;
+}
+@media (max-width: 560px) {
+  .intro-lead { font-size: 20px; line-height: 1.75; }
 }

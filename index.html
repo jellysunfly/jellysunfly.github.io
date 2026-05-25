@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Academic portfolio and CV homepage for JiWoong Yang, focused on medical AI and multi-view deep learning." />
-  <title>JiWoong Yang | Medical AI Researcher</title>
+  <meta name="description" content="Academic portfolio and CV homepage for Jiwoong Yang, focused on computer vision, medical AI, deep learning, and multi-view learning." />
+  <title>Jiwoong Yang | Medical AI & Multi-view Learning</title>
   <style>
     :root {
       --bg: #f7f4ef;
@@ -70,7 +70,7 @@
     .hero { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 56px; align-items: center; padding-top: 86px; }
     .pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--card); color: var(--muted); border-radius: 999px; padding: 9px 14px; font-size: 14px; font-weight: 700; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); }
     .dot { width: 9px; height: 9px; border-radius: 999px; background: #10b981; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.12); }
-    h1 { margin: 22px 0 0; font-size: clamp(52px, 8vw, 88px); line-height: 0.91; letter-spacing: -0.075em; }
+    h1 { margin: 22px 0 0; font-size: clamp(50px, 8vw, 86px); line-height: 0.93; letter-spacing: -0.075em; }
     .lead { margin-top: 28px; max-width: 680px; color: var(--muted); font-size: 18px; line-height: 1.85; }
     .tag-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
     .tag { border: 1px solid var(--line); background: var(--card); border-radius: 999px; color: var(--muted); padding: 9px 13px; font-size: 13px; font-weight: 800; }
@@ -102,7 +102,8 @@
     .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 32px; align-items: start; }
     .card h3 { margin: 0; font-size: 21px; letter-spacing: -0.035em; }
-    .card p { color: var(--muted); line-height: 1.8; margin: 12px 0 0; }
+    .card p, .card li { color: var(--muted); line-height: 1.78; }
+    .card p { margin: 12px 0 0; }
     .icon-bubble { width: 50px; height: 50px; border-radius: 18px; display: grid; place-items: center; margin-bottom: 18px; background: var(--accent); color: var(--accent-text); font-size: 22px; }
     .filter-row { display: flex; flex-wrap: wrap; gap: 8px; }
     .filter { border: 1px solid var(--line); background: var(--card); color: var(--muted); border-radius: 999px; padding: 10px 14px; cursor: pointer; font-weight: 850; }
@@ -113,7 +114,9 @@
     .status { background: var(--accent); color: var(--accent-text); border-radius: 999px; padding: 7px 11px; font-size: 11px; font-weight: 950; }
     .category { color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; font-size: 12px; font-weight: 950; }
     .paper { display: flex; gap: 18px; }
-    .year { flex: 0 0 62px; width: 62px; height: 62px; border-radius: 20px; display: grid; place-items: center; background: var(--accent); color: var(--accent-text); font-weight: 950; }
+    .year { flex: 0 0 72px; width: 72px; height: 62px; border-radius: 20px; display: grid; place-items: center; background: var(--accent); color: var(--accent-text); font-weight: 950; font-size: 13px; text-align: center; padding: 4px; }
+    .list-compact { margin: 16px 0 0; padding-left: 18px; }
+    .list-compact li { margin: 8px 0; }
     .skill-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
     .contact-card { background: var(--accent); color: var(--accent-text); }
     .contact-card .section-label { background: rgba(255,255,255,0.12); color: currentColor; border-color: rgba(255,255,255,0.18); }
@@ -121,6 +124,7 @@
     .contact-card p { color: color-mix(in srgb, currentColor 72%, transparent); }
     .contact-links { display: grid; gap: 12px; }
     .contact-link { display: flex; justify-content: space-between; align-items: center; border-radius: 24px; padding: 16px; background: rgba(255,255,255,0.12); font-weight: 900; }
+    .mini-link { text-decoration: underline; text-underline-offset: 4px; }
     footer { color: var(--muted); font-size: 14px; padding: 36px 0 48px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 18px; border-top: 1px solid var(--line); padding-top: 26px; }
 
@@ -135,10 +139,12 @@
 
     @media (max-width: 520px) {
       .container { width: min(100% - 28px, 1120px); }
-      h1 { font-size: 50px; }
+      h1 { font-size: 47px; }
       .card { padding: 22px; }
       .profile-body { padding: 22px; padding-top: 0; }
       .actions .button { width: 100%; justify-content: center; }
+      .paper { display: block; }
+      .year { margin-bottom: 14px; }
     }
   </style>
 </head>
@@ -155,7 +161,7 @@
         <a class="brand" href="#home" aria-label="Go to homepage">
           <div class="logo">JY</div>
           <div>
-            <div class="brand-title">JiWoong Yang</div>
+            <div class="brand-title">Jiwoong Yang</div>
             <div class="brand-subtitle">Academic Portfolio</div>
           </div>
         </a>
@@ -165,6 +171,7 @@
           <a href="#projects">Projects</a>
           <a href="#publications">Publications</a>
           <a href="#cv">CV</a>
+          <a href="#honors">Honors</a>
           <a href="#contact">Contact</a>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
@@ -174,20 +181,20 @@
     <main>
       <section class="container hero" id="home">
         <div>
-          <div class="pill"><span class="dot"></span> Open to research collaboration</div>
-          <h1>Designing reliable AI for clinical images.</h1>
+          <div class="pill"><span class="dot"></span> Integrated M.S./Ph.D. Student at Hanyang University</div>
+          <h1>Building multi-view AI for medical images.</h1>
           <p class="lead">
-            I build clinically meaningful AI systems for medical image analysis, with a focus on multi-view deep learning, radiography-based diagnosis, robust feature fusion, and interpretable decision support.
+            I am an integrated M.S./Ph.D. student in Artificial Intelligence Semiconductor at Hanyang University. My research focuses on computer vision, medical AI, deep learning, and multi-view learning.
           </p>
           <div class="tag-row">
+            <span class="tag">Computer Vision</span>
             <span class="tag">Medical AI</span>
+            <span class="tag">Deep Learning</span>
             <span class="tag">Multi-view Learning</span>
-            <span class="tag">Radiography</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">Clinical Decision Support</span>
+            <span class="tag">Traffic AI</span>
           </div>
           <div class="actions">
-            <a class="button primary" href="#cv">View CV Highlights →</a>
+            <a class="button primary" href="#publications">View Publications →</a>
             <a class="button secondary" href="#projects">Explore Projects →</a>
           </div>
         </div>
@@ -196,12 +203,12 @@
           <div class="profile-banner"></div>
           <div class="profile-body">
             <div class="avatar">JY</div>
-            <h2>JiWoong Yang</h2>
-            <div class="role">Medical AI Researcher · Deep Learning Engineer</div>
+            <h2>Jiwoong Yang</h2>
+            <div class="role">Medical AI · Computer Vision · Multi-view Learning</div>
             <div class="info-list">
-              <div class="info-item"><div class="info-icon">▣</div><div><div class="info-label">Research</div><div class="info-value">Medical AI · Multi-view Learning</div></div></div>
-              <div class="info-item"><div class="info-icon">◎</div><div><div class="info-label">Focus</div><div class="info-value">Radiography · MRI · Explainability</div></div></div>
-              <div class="info-item"><div class="info-icon">⌂</div><div><div class="info-label">Location</div><div class="info-value">Seoul, South Korea</div></div></div>
+              <div class="info-item"><div class="info-icon">▣</div><div><div class="info-label">Position</div><div class="info-value">Integrated M.S./Ph.D. Student</div></div></div>
+              <div class="info-item"><div class="info-icon">◎</div><div><div class="info-label">Affiliation</div><div class="info-value">Hanyang University</div></div></div>
+              <div class="info-item"><div class="info-icon">✉</div><div><div class="info-label">Public E-mail</div><div class="info-value">jiwoong0412@hanyang.ac.kr</div></div></div>
             </div>
           </div>
         </aside>
@@ -213,11 +220,16 @@
           <h2>Research-driven, clinically grounded, and implementation-focused.</h2>
           <div class="card">
             <p>
-              My work focuses on bridging deep learning research and practical clinical AI. I am especially interested in how multiple images from the same patient or object can be fused into a more reliable prediction than a single image alone.
+              I study computer vision and medical AI with an emphasis on deep learning and multi-view learning. My current work includes clinical medical diagnostic assistance, self-supervised learning based on contrastive learning, and robust learning from multiple views.
             </p>
             <p>
-              This homepage is designed to present research interests, selected projects, publications, technical skills, and CV information in a clean academic style.
+              I am affiliated with EDIL at Hanyang University and HAI at Hankuk University of Foreign Studies, and I am pursuing graduate study in Artificial Intelligence Semiconductor.
             </p>
+            <div class="tag-row">
+              <a class="tag" href="https://sites.google.com/view/eidl/home">EDIL</a>
+              <a class="tag" href="https://labhai.hufs.ac.kr/">HAI Lab</a>
+              <a class="tag" href="mailto:jiwoong0412@hanyang.ac.kr">Public E-mail</a>
+            </div>
           </div>
         </div>
       </section>
@@ -226,12 +238,12 @@
         <div class="section-label">Research</div>
         <div class="section-head">
           <h2>Core research interests</h2>
-          <p>A compact overview of the themes that connect my medical AI and multi-view learning projects.</p>
+          <p>A compact overview of the themes that connect my medical AI, multi-view learning, and intelligent system projects.</p>
         </div>
         <div class="grid-3">
-          <div class="card"><div class="icon-bubble">🧠</div><h3>Multi-view Deep Learning</h3><p>Learning complementary representations from fixed clinical views such as AP, Axial, Glenoid, Outlet, frontal/lateral, and facial poses.</p></div>
-          <div class="card"><div class="icon-bubble">🔬</div><h3>Medical Image Analysis</h3><p>Designing deep learning pipelines for radiography, MRI segmentation, explainability, and clinically meaningful screening support.</p></div>
-          <div class="card"><div class="icon-bubble">✨</div><h3>Evidence & Feature Fusion</h3><p>Exploring attention, score fusion, contrastive learning, and Dempster–Shafer evidence aggregation for reliable predictions.</p></div>
+          <div class="card"><div class="icon-bubble">🧠</div><h3>Multi-view Learning</h3><p>Learning reliable representations from multiple images, views, and view combinations for robust classification and decision support.</p></div>
+          <div class="card"><div class="icon-bubble">🔬</div><h3>Medical AI</h3><p>Developing deep learning models for clinical diagnostic assistance, including shoulder radiographs and medical image analysis.</p></div>
+          <div class="card"><div class="icon-bubble">✨</div><h3>Self-supervised Learning</h3><p>Exploring contrastive learning and representation learning strategies to improve data efficiency and model generalization.</p></div>
         </div>
       </section>
 
@@ -245,27 +257,56 @@
           <div class="filter-row">
             <button class="filter active" data-filter="All">All</button>
             <button class="filter" data-filter="Medical AI">Medical AI</button>
-            <button class="filter" data-filter="Segmentation">Segmentation</button>
-            <button class="filter" data-filter="Dataset">Dataset</button>
+            <button class="filter" data-filter="Multi-view">Multi-view</button>
+            <button class="filter" data-filter="Traffic AI">Traffic AI</button>
+            <button class="filter" data-filter="Computer Vision">Computer Vision</button>
           </div>
         </div>
         <div class="grid-2" id="projectGrid">
-          <article class="card project-card" data-category="Medical AI"><div class="project-top"><span class="status">Research Project</span><span>↗</span></div><div class="category">Medical AI</div><h3>Rotator Cuff Tear Diagnosis from Multi-view Shoulder Radiographs</h3><p>A multi-view diagnostic framework using shoulder radiographs to support screening for rotator cuff tears.</p><div class="tag-row"><span class="tag">Multi-view</span><span class="tag">Radiography</span><span class="tag">Grad-CAM</span><span class="tag">Evidence Fusion</span></div></article>
-          <article class="card project-card" data-category="Medical AI"><div class="project-top"><span class="status">Research Project</span><span>↗</span></div><div class="category">Medical AI</div><h3>Facial Paralysis Severity Classification from Multi-pose Facial Images</h3><p>A multi-image learning approach for classifying facial paralysis severity from normal, E-pronunciation, and U-pronunciation facial poses.</p><div class="tag-row"><span class="tag">Multi-pose</span><span class="tag">Classification</span><span class="tag">Class Imbalance</span></div></article>
-          <article class="card project-card" data-category="Segmentation"><div class="project-top"><span class="status">Proposal / Ongoing</span><span>↗</span></div><div class="category">Segmentation</div><h3>Choroid Plexus Volume Segmentation with Multimodal MRI</h3><p>A segmentation-focused study using T1, contrast-enhanced T1, and FLAIR MRI to analyze CPV-related neurodegenerative markers.</p><div class="tag-row"><span class="tag">MRI</span><span class="tag">nnUNet</span><span class="tag">SwinUNETR</span></div></article>
-          <article class="card project-card" data-category="Dataset"><div class="project-top"><span class="status">Manuscript Project</span><span>↗</span></div><div class="category">Dataset</div><h3>Traffic Accident Risk Prediction Dataset Construction in Seoul</h3><p>A data-centric study integrating accident records, weather, road networks, speed, POI, solar geometry, and surveillance data.</p><div class="tag-row"><span class="tag">Dataset</span><span class="tag">Seoul</span><span class="tag">Risk Prediction</span></div></article>
+          <article class="card project-card" data-category="Traffic AI"><div class="project-top"><span class="status">Jun. 2022 – Aug. 2023</span><span>↗</span></div><div class="category">Traffic AI</div><h3>Urban Traffic Accident Risk Prediction Based on Various Factors</h3><p>Research student project at Yonsei University, Korea, focusing on traffic accident risk prediction with diverse urban and environmental factors.</p><div class="tag-row"><span class="tag">Risk Prediction</span><span class="tag">Urban Data</span><span class="tag">Yonsei University</span></div></article>
+          <article class="card project-card" data-category="Computer Vision"><div class="project-top"><span class="status">Mar. 2022 – Nov. 2022</span><span>↗</span></div><div class="category">Computer Vision</div><h3>Development of Illegal Video Discrimination Technology</h3><p>AI program development project through SW Central University at Yonsei University, Korea.</p><div class="tag-row"><span class="tag">AI Program</span><span class="tag">Video Analysis</span><span class="tag">Computer Vision</span></div></article>
+          <article class="card project-card" data-category="Computer Vision"><div class="project-top"><span class="status">Mar. 2022 – 2023</span><span>↗</span></div><div class="category">Computer Vision</div><h3>Food Freshness Measurement AI Program Using Image Detection</h3><p>Personal AI development project using image detection for food freshness measurement.</p><div class="tag-row"><span class="tag">Image Detection</span><span class="tag">AI Application</span><span class="tag">Personal Project</span></div></article>
+          <article class="card project-card" data-category="Traffic AI"><div class="project-top"><span class="status">Sep. 2023 – 2024</span><span>↗</span></div><div class="category">Traffic AI</div><h3>Traffic Accident Risk Prediction Based on Internal Vehicle Factors</h3><p>Research student project at Yonsei University, Korea, analyzing internal vehicle factors for accident risk prediction.</p><div class="tag-row"><span class="tag">Traffic Safety</span><span class="tag">Driver Factors</span><span class="tag">Risk Estimation</span></div></article>
+          <article class="card project-card" data-category="Medical AI"><div class="project-top"><span class="status">Mar. 2024 – Present</span><span>↗</span></div><div class="category">Medical AI</div><h3>Deep Learning Research for Clinical Medical Diagnostic Assistance</h3><p>Integrated M.S./Ph.D. research at Hanyang University focused on clinical medical diagnostic assistance using deep learning.</p><div class="tag-row"><span class="tag">Medical AI</span><span class="tag">Deep Learning</span><span class="tag">Clinical Support</span></div></article>
+          <article class="card project-card" data-category="Multi-view"><div class="project-top"><span class="status">Aug. 2024 – Present</span><span>↗</span></div><div class="category">Multi-view</div><h3>Self-supervised Learning Based on Contrastive Learning</h3><p>Integrated M.S./Ph.D. research at Hanyang University exploring contrastive learning for representation learning.</p><div class="tag-row"><span class="tag">Contrastive Learning</span><span class="tag">Self-supervised Learning</span><span class="tag">Representation Learning</span></div></article>
+          <article class="card project-card" data-category="Multi-view"><div class="project-top"><span class="status">Aug. 2024 – Present</span><span>↗</span></div><div class="category">Multi-view</div><h3>Multi-view Learning</h3><p>Integrated M.S./Ph.D. research at Hanyang University focused on learning from multiple views and view combinations.</p><div class="tag-row"><span class="tag">Multi-view</span><span class="tag">Feature Fusion</span><span class="tag">Model Reliability</span></div></article>
         </div>
       </section>
 
       <section class="container" id="publications">
         <div class="section-label">Publications</div>
-        <div class="split" style="margin-top: 18px;">
-          <div><h2>Publications & manuscripts</h2><p class="lead" style="font-size: 16px; margin-top: 18px;">Replace these placeholders with exact paper titles, author order, venues, DOI, and links.</p></div>
-          <div style="display: grid; gap: 16px;">
-            <div class="card paper"><div class="year">2026</div><div><h3>View Evidence Fusion via Dempster’s Rule for Multi-view Medical Image Classification</h3><p>Manuscript in preparation</p></div></div>
-            <div class="card paper"><div class="year">2026</div><div><h3>Radiography-based Deep Learning for Rotator Cuff Tear Screening</h3><p>Manuscript in preparation</p></div></div>
-            <div class="card paper"><div class="year">2025</div><div><h3>Dataset Construction for Traffic Accident Risk Prediction in Seoul</h3><p>Manuscript draft</p></div></div>
+        <div class="section-head">
+          <div>
+            <h2>Publications & manuscripts</h2>
+            <p style="margin-top: 16px;">Journal papers, conference papers, manuscripts, and selected conference activity.</p>
           </div>
+          <a class="button secondary" href="https://scholar.google.co.kr/citations?hl=ko&user=rrsgcvcAAAAJ&view_op=list_works">Google Scholar →</a>
+        </div>
+        <div class="grid-2">
+          <div class="card paper"><div class="year">Prep.</div><div><h3>Multi-View and Multi-Scale Hierarchical Fusion for Rotator Cuff Tear Prediction using Shoulder X-rays</h3><p>J. Yang, C. Jo, D. Kim, H. Chung*, I. Jang* · Manuscript Preparation</p></div></div>
+          <div class="card paper"><div class="year">Under<br>Review</div><div><h3>Hierarchical Mutual Distillation for Multi-View Fusion: Learning from All Possible View Combinations</h3><p>J. Yang, H. Chung*, I. Jang* · Under review</p><p><a class="mini-link" href="https://arxiv.org/abs/2411.10077">arXiv</a></p></div></div>
+          <div class="card paper"><div class="year">Under<br>Review</div><div><h3>SST-GCN: Sequential-based Spatio-Temporal Graph Convolutional Networks for Minute-level and Road-level Traffic Accident Risk Prediction</h3><p>Taewook Kim, Hanjin Lee, HyeonJin Jung, Jiwoong Yang, Ellen J. Hong* · Under review</p><p><a class="mini-link" href="https://arxiv.org/abs/2405.18602">arXiv</a></p></div></div>
+          <div class="card paper"><div class="year">IEEE<br>Access</div><div><h3>Predicting Traffic Accident Risk in Seoul Metropolitan City: A Dataset Construction Approach</h3><p>Jiwoong Yang, Hyeonjin Jung, Taewook Kim, Hanjin Lee, Ellen J. Hong* · IEEE Access</p></div></div>
+          <div class="card paper"><div class="year">CLINICCAI<br>2024</div><div><h3>Preoperative Rotator Cuff Tear Prediction from Shoulder Radiographs using a CBAM-Integrated Neural Network</h3><p>Jiwoong Yang†, Chris Hyunchul Jo†, Byunghwan Jeon, Hackjoon Shim, Ikbeom Jang* · MICCAI Workshop</p></div></div>
+          <div class="card paper"><div class="year">KCI</div><div><h3>Driver Group Clustering Technique and Risk Estimation Method for Traffic Accident Prevention</h3><p>Tae-Wook Kim, Ji-Woong Yang, Hyeon-Jin Jung, Han-Jin Lee, Ellen J. Hong* · Journal of The Korea Society of Computer and Information</p></div></div>
+          <div class="card paper"><div class="year">KCI</div><div><h3>Predicting Traffic Accident Risk based on Driver Abnormal Behavior and Gaze</h3><p>Ji-Woong Yang, Hyeon-Jin Jung, Han-Jin Lee, Tae-Wook Kim, Ellen J. Hong* · Journal of The Korea Society of Computer and Information</p></div></div>
+          <div class="card paper"><div class="year">KCI</div><div><h3>Spatiotemporal Feature-based LSTM-MLP Model for Predicting Traffic Accident Severity</h3><p>Hyeon-Jin Jung, Ji-Woong Yang, Ellen J. Hong* · Journal of The Korea Society of Computer and Information</p></div></div>
+          <div class="card paper"><div class="year">KCI</div><div><h3>Proposed Pre-Processing Method for Improving Pothole Dataset Performance in Deep Learning Model and Verification by YOLO Model</h3><p>Han-Jin Lee, Ji-Woong Yang, Ellen J. Hong* · Journal of Korea Institute of Convergence Signal Processing</p></div></div>
+        </div>
+
+        <div class="section-head" style="margin-top: 52px;">
+          <h2>Conference activity</h2>
+          <p>Selected international and domestic conferences attended or presented.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="category">2026</div><h3>KCCV 2026</h3><p>Korea Conference on Computer Vision, BEXCO, Busan, Korea · Attended</p></div>
+          <div class="card"><div class="category">2025</div><h3>ICMRI 2025</h3><p>International Congress on MRI, Grand Walkerhill Seoul, Korea · Attended</p></div>
+          <div class="card"><div class="category">2025</div><h3>ICCV 2025</h3><p>International Conference on Computer Vision, Hawai'i Convention Center, Honolulu · Attended</p></div>
+          <div class="card"><div class="category">2025</div><h3>KCCV 2025</h3><p>Korea Conference on Computer Vision, BEXCO, Busan, Korea · Attended</p></div>
+          <div class="card"><div class="category">2024</div><h3>NeurIPS 2024</h3><p>Thirty-Eighth Annual Conference on Neural Information Processing Systems, Vancouver, Canada · Attended</p></div>
+          <div class="card"><div class="category">2024</div><h3>KCCV 2024</h3><p>Korea Conference on Computer Vision, BEXCO, Busan, Korea · Attended</p></div>
+          <div class="card"><div class="category">2023</div><h3>KICSP Summer Conference</h3><p>Oral presentation: Data Correlation Analysis and Deep Learning Model for DDoS Detection</p></div>
+          <div class="card"><div class="category">2023</div><h3>ICSPT 2023</h3><p>Oral presentation: Dataset Construction and Preprocessing Method for Traffic Accident Risk Prediction Model</p></div>
         </div>
       </section>
 
@@ -274,19 +315,76 @@
         <div class="grid-2" style="margin-top: 18px;">
           <div class="card" style="background: var(--accent); color: var(--accent-text);">
             <h2 style="margin:0; font-size: clamp(34px, 5vw, 54px); letter-spacing: -0.055em; line-height:1;">Curriculum Vitae</h2>
-            <p style="color: color-mix(in srgb, currentColor 72%, transparent);">Keep your PDF CV updated and link it here. The website should show highlights, while the PDF contains the complete academic record.</p>
-            <div class="actions"><a class="button secondary" href="#contact">Contact for CV →</a></div>
+            <p style="color: color-mix(in srgb, currentColor 72%, transparent);">A concise academic CV summary based on education, coursework, GPA, research projects, publications, and honors.</p>
+            <div class="actions"><a class="button secondary" href="#contact">Contact me →</a></div>
           </div>
           <div style="display:grid; gap: 14px;">
-            <div class="card"><div class="category">Education</div><p>Add your university, degree, department, and expected graduation date.</p></div>
-            <div class="card"><div class="category">Research Experience</div><p>Medical image analysis, multi-view learning, segmentation, and dataset construction.</p></div>
-            <div class="card"><div class="category">Technical Stack</div><p>Python, PyTorch, MONAI, OpenCV, scikit-learn, Linux, Git, WandB.</p></div>
-            <div class="card"><div class="category">Current Focus</div><p>Clinically interpretable multi-view AI models for radiography and MRI.</p></div>
+            <div class="card"><div class="category">Education</div><p>B.S., Yonsei University · 2018.03 – 2024.02<br>Integrated M.S./Ph.D. Student, Hanyang University · 2024.03 – Present<br>Field: Artificial Intelligence Semiconductor</p></div>
+            <div class="card"><div class="category">GPA</div><p>Bachelor GPA: 4.08 / 4.3 (4.22 / 4.5), 143 credits · First-class honor: 3 / 101<br>Graduate GPA: 4.23 / 4.5, 46 credits (~ing)</p></div>
+            <div class="card"><div class="category">Lab & Position</div><p>Current Position: Integrated M.S./Ph.D. Student, Hanyang University<br>Labs: EDIL at Hanyang University, HAI at Hankuk University of Foreign Studies</p></div>
+            <div class="card"><div class="category">Programming Skills</div><p>Python (main), Unity-C#, Matlab, C++</p></div>
           </div>
         </div>
+
+        <div class="grid-2" style="margin-top: 18px;">
+          <div class="card">
+            <h3>Coursework</h3>
+            <ul class="list-compact">
+              <li>Engineering Mathematics, Datamining, Computational Biology</li>
+              <li>Artificial Intelligence, Algorithmic Foundations in Robotics</li>
+              <li>Software Engineering, Basic Algorithm, AI Math</li>
+              <li>Operating System, Data Structure, Unix System</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>History</h3>
+            <ul class="list-compact">
+              <li>2006 – 2011: Gajwa Elementary School</li>
+              <li>2012 – 2014: Goyang Songsan Middle School</li>
+              <li>2015 – 2017: Unjeong High School</li>
+              <li>2019.11 – 2021.08: Korea Air Force</li>
+            </ul>
+          </div>
+        </div>
+
         <h3 style="margin: 36px 0 14px;">Technical skills</h3>
         <div class="skill-cloud">
-          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">MONAI</span><span class="tag">OpenCV</span><span class="tag">scikit-learn</span><span class="tag">Weights & Biases</span><span class="tag">ResNet</span><span class="tag">ConvNeXt</span><span class="tag">nnUNet</span><span class="tag">SwinUNETR</span><span class="tag">Grad-CAM</span><span class="tag">Cross-validation</span>
+          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Computer Vision</span><span class="tag">Deep Learning</span><span class="tag">Medical AI</span><span class="tag">Multi-view Learning</span><span class="tag">Contrastive Learning</span><span class="tag">Traffic AI</span><span class="tag">Matlab</span><span class="tag">C++</span><span class="tag">Unity-C#</span>
+        </div>
+      </section>
+
+      <section class="container" id="honors">
+        <div class="section-label">Honors</div>
+        <div class="section-head">
+          <h2>Awards & honors</h2>
+          <p>Selected undergraduate and graduate awards, scholarships, and competition results.</p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>B.S. period</h3>
+            <ul class="list-compact">
+              <li>2nd Semester 2018 Honors, Yonsei University · Feb. 2019</li>
+              <li>Scholarship for excellence in grades, Yonsei University · Feb. 2019</li>
+              <li>Scholarship for excellence in grades, Yonsei University · Feb. 2022</li>
+              <li>1st Semester 2022 Honors, Yonsei University · Aug. 2022</li>
+              <li>SW scholarship for excellence in grades, Yonsei University · Aug. 2022</li>
+              <li>SW Startup Idea Contest – Grand Prize, Yonsei University · Sep. 2022</li>
+              <li>The 5th National Smart IoT Idea Contest – Excellence Prize, Busan U-IoT Institute · Nov. 2022</li>
+              <li>ICSPT2023 – The 1st International Conference on Convergence Signal Processing Technology · Feb. 2023</li>
+              <li>2nd Semester 2022 Honors, Yonsei University · Feb. 2023</li>
+              <li>Scholarship for excellence in grades, Yonsei University · Aug. 2023</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>M.S. & Ph.D. period</h3>
+            <ul class="list-compact">
+              <li>Dacon Competition – 1st Medical Artificial Intelligence (MAI), 3rd Prize, Korea University · Nov. 2024</li>
+              <li>AI Champion Competition – TTA Award, Top 20 out of 630 teams, Ministry of Science and ICT / IITP / TTA · Sep. 2025</li>
+              <li>AI Seoul Tech Graduate Scholarship, Seoul Future Foundation · Nov. 2025</li>
+              <li>IC-PBL+ Graduate Championship – 3rd Prize, Hanyang University · Feb. 2026</li>
+              <li>HY-BK G3 Program (Bio-Meta Vision) – 1st Prize, Hanyang University · Feb. 2026</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -295,13 +393,14 @@
           <div class="grid-2" style="align-items:center;">
             <div>
               <div class="section-label">Contact</div>
-              <h2 style="margin:18px 0 0; font-size: clamp(34px, 5vw, 56px); line-height:1; letter-spacing:-0.055em;">Let’s build clinically useful AI.</h2>
-              <p>Update these links with your real email, GitHub, Google Scholar, ORCID, or LinkedIn before publishing.</p>
+              <h2 style="margin:18px 0 0; font-size: clamp(34px, 5vw, 56px); line-height:1; letter-spacing:-0.055em;">Let’s connect.</h2>
+              <p>For research collaboration, publication inquiries, or project discussion, please contact me through public e-mail or academic profiles.</p>
             </div>
             <div class="contact-links">
-              <a class="contact-link" href="mailto:your.email@example.com"><span>Email</span><span>↗</span></a>
-              <a class="contact-link" href="https://github.com/your-github-id"><span>GitHub</span><span>↗</span></a>
-              <a class="contact-link" href="https://scholar.google.com/"><span>Google Scholar</span><span>↗</span></a>
+              <a class="contact-link" href="mailto:jiwoong0412@hanyang.ac.kr"><span>Public E-mail</span><span>↗</span></a>
+              <a class="contact-link" href="mailto:didwldnd990412@gmail.com"><span>Personal E-mail</span><span>↗</span></a>
+              <a class="contact-link" href="https://scholar.google.co.kr/citations?hl=ko&user=rrsgcvcAAAAJ&view_op=list_works"><span>Google Scholar</span><span>↗</span></a>
+              <a class="contact-link" href="https://www.linkedin.com/in/%EC%A7%80%EC%9B%85-%EC%96%91-129815341/"><span>LinkedIn</span><span>↗</span></a>
             </div>
           </div>
         </div>
@@ -310,7 +409,7 @@
 
     <footer class="container">
       <div class="footer-inner">
-        <div>© <span id="year"></span> JiWoong Yang. All rights reserved.</div>
+        <div>© <span id="year"></span> Jiwoong Yang. All rights reserved.</div>
         <div>Built as a static portfolio for free public hosting.</div>
       </div>
     </footer>
